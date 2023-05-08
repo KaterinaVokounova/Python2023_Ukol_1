@@ -7,7 +7,7 @@ president['rank'] = president.groupby (['state','year'])['candidatevotes'].rank(
 
 #2.	Pro další analýzu jsou důležití pouze vítězové. Vytvoř novou tabulku, která bude obsahovat pouze vítěze voleb.
 
-winners = president [president['rank']==1.0].reset_index()
+winners = president [president['rank']==1.0].reset_index(drop=True)
 
 #3.	Pomocí metody shift() přidej nový sloupec, abys v jednotlivých řádcích měl(a) po sobě vítězné strany ve dvou po sobě jdoucích letech.
 winners['previous_year_winner'] = winners.groupby('state')['party_simplified'].shift(periods=1)
