@@ -31,10 +31,10 @@ res_1 = smf.ols(formula='Life_expectancy ~ GDP_per_capita + Schooling + Incident
 #print (res_1.summary())
 
 # b) řešení pomocí robustní regrese
-data_x = Life_Expectancy_2015[['GDP_per_capita', 'Schooling', 'Incidents_HIV', 'Diphtheria', 'Polio', 'BMI', 'Measles']]
+data_x = Life_Expectancy [['GDP_per_capita', 'Schooling', 'Incidents_HIV', 'Diphtheria', 'Polio', 'BMI', 'Measles']]
 data_x = sm.add_constant(data_x)
 
-rlm_model = sm.RLM(Life_Expectancy_2015['Life_expectancy'], data_x)
+rlm_model = sm.RLM(Life_Expectancy ['Life_expectancy'], data_x)
 rlm_results = rlm_model.fit()
 #print (rlm_results.summary())
 
