@@ -59,17 +59,20 @@ hladina významnosti = 5%
 testy: Omnibus a Jarque-Bera
 '''
 
+# Využiju tabulku z řešení 3.a)
+#print (res_1.summary())
+
+'''
+Výsledky: 
+Omnibus (Prob = 0.143): p-hodnota > 0.05, nezamítáme nulovou hypotézu
+Jarque-Bera (Prob = 0.138): p-hodnota > 0.05, nezamítáme nulovou hypotézu
+
+Jen pro ověření: 
 Life_Expectancy_2015 ["residuals"] = res.resid
 Life_Expectancy_2015["predictions"] = res.fittedvalues
 #print (Life_Expectancy_2015 [["Country", "Life_expectancy", "predictions", "residuals"]])
 #Life_Expectancy_2015["residuals"].plot.kde()
 
-# Využiju tabulku z řešení 3.a)
-#print (res_1.summary())
-
-'''
-Omnibus (Prob = 0.143): p-hodnota > 0.05, nezamítáme nulovou hypotézu
-Jarque-Bera (Prob = 0.138): p-hodnota > 0.05, nezamítáme nulovou hypotézu
 
 ot.1 (normalita reziduí): rezidua mají normální rozdělení
 
@@ -86,7 +89,7 @@ V novém modelu tedy odebírám proměnnou "Diphtheria"
 
 '''
 res_2 = smf.ols(formula='Life_expectancy ~ GDP_per_capita + Schooling + Incidents_HIV + Polio + BMI + Measles', data=Life_Expectancy_2015).fit()
-print (res_2.summary())
+#print (res_2.summary())
 
 '''
 Výsledky: koeficienty se změnily v řádu tisícin, koeficient determinace zůstává stejný jako v předchozím  modelu, tzn. 0.790. Potvrdilo se nám, že proměnná "Diphtheria" opravdu nemá téměř žádný vliv na vysvětlovanou proměnnou.
