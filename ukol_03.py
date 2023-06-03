@@ -30,7 +30,7 @@ res = smf.ols (formula='Life_expectancy ~ GDP_per_capita', data=Life_Expectancy_
 res_1 = smf.ols(formula='Life_expectancy ~ GDP_per_capita + Schooling + Incidents_HIV + Diphtheria + Polio + BMI + Measles', data=Life_Expectancy_2015).fit()
 #print (res_1.summary())
 
-# a) řešení pomocí robustní regrese
+# b) řešení pomocí robustní regrese
 data_x = Life_Expectancy_2015[['GDP_per_capita', 'Schooling', 'Incidents_HIV', 'Diphtheria', 'Polio', 'BMI', 'Measles']]
 data_x = sm.add_constant(data_x)
 
